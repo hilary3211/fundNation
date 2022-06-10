@@ -1,0 +1,35 @@
+{
+  "canisters": {
+    "Crowd_Fund": {
+      "main": "src/Crowd_Fund/main.mo",
+      "type": "motoko"
+    },
+    "Crowd_Fund_assets": {
+      "dependencies": [
+        "Crowd_Fund"
+      ],
+      "frontend": {
+        "entrypoint": "src/Crowd_Fund_assets/src/index.html"
+      },
+      "source": [
+        "src/Crowd_Fund_assets/assets",
+        "dist/Crowd_Fund_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.10.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
