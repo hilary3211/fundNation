@@ -1,27 +1,47 @@
 {
   "canisters": {
-    "Crowd_Fund": {
-      "main": "src/Crowd_Fund/main.mo",
+    "fundnation": {
+      "dependencies": [
+        "escrow_manager"
+      ],
+      "main": "src/fundnation/main.mo",
       "type": "motoko"
     },
-    "Crowd_Fund_assets": {
+    "ledger": {
+      "type": "custom",
+      "wasm": "ledger.wasm",
+      "candid": "ledger.public.did"
+    },
+    "escrow_manager_assets": {
       "dependencies": [
-        "Crowd_Fund"
+        "fundnation",
+        "escrow_manager",
+        "images"
       ],
       "frontend": {
-        "entrypoint": "src/Crowd_Fund_assets/src/index.html"
+        "entrypoint": "src/escrow_manager_assets/src/index.html"
       },
       "source": [
-        "src/Crowd_Fund_assets/assets",
-        "dist/Crowd_Fund_assets/"
+        "src/escrow_manager_assets/assets",
+        "dist/escrow_manager_assets/"
       ],
       "type": "assets"
+    },
+    "escrow_manager": {
+      "main": "src/escrow_manager/main.mo",
+      "type": "motoko"
+    },
+    "images": {
+      "main": "src/images/main.mo"
     }
   },
   "defaults": {
     "build": {
       "args": "",
       "packtool": ""
+    },
+    "replica": {
+      "subnet_type": "system"
     }
   },
   "dfx": "0.10.0",

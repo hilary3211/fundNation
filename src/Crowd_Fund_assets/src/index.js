@@ -1,4 +1,4 @@
-import { Crowd_Fund } from "../../declarations/Crowd_Fund";
+import { Crowd_Fund } from "../../declarations/escrow_manager";
 
 document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
